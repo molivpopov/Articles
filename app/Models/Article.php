@@ -20,4 +20,9 @@ class Article extends Model
         return $this->belongsToMany(Tag::class, ArticleTag::class)
             ->orderBy('created_at', 'desc');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

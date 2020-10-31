@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2cb2da29-d5f2-45a3-8494-db64af0a36b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ArticleCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ArticleCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ArticleResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ArticleResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604044611612</updated>
       <workItem from="1604044612924" duration="6553000" />
-      <workItem from="1604054531381" duration="21923000" />
+      <workItem from="1604054531381" duration="28337000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1604051252118</created>
@@ -182,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604122846423</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="making resources, middleware">
+      <created>1604140206549</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604140206549</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,20 +201,25 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="making models Article, Tag, Image, ArticleImage" />
-    <option name="LAST_COMMIT_MESSAGE" value="making models Article, Tag, Image, ArticleImage" />
+    <MESSAGE value="making resources, middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="making resources, middleware" />
   </component>
   <component name="WindowStateProjectService">
     <state x="406" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604139163733">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="406" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1604139163733" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1604122843685">
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604143420482">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1604122843685" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1604122854517">
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604143420482" />
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1604140203097">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1604122854517" />
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1604140203097" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1604140211264">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1604140211264" />
   </component>
 </project>
