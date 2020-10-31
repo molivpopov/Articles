@@ -17,7 +17,6 @@ class CommentResource extends JsonResource
         return [
             'comment' => $this->comment,
             'user' => UserResource::make($this->user),
-//            'article' => ArticleResource::collection($this->article),
         ];
     }
 }

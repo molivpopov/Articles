@@ -14,9 +14,11 @@ class ImageResource extends JsonResource
      */
     public function toArray($request)
     {
+        $haveImage = (boolean)$this->name;
+
         return [
-            'name' => $this->name,
-            'link' => $this->link,
+            'name' => $this->when($haveImage, $this->name),
+            'link' => $this->when($haveImage, $this->link),
         ];
     }
 }

@@ -21,8 +21,12 @@ class ArticleResource extends JsonResource
             'header' => $this->title,
             'text' => $this->when($isNotList, $this->body),
             'tags' => TagResource::collection($this->tags),
-            'images' => ImageResource::collection($this->when($isNotList, $this->images)),
-            'comments' => CommentResource::collection($this->when($isNotList, $this->comments)),
+            'images' => ImageResource::collection(
+                $this->when($isNotList && $this->images->isNotEmpty(), $this->images)
+            ),
+            'comments' => CommentResource::collection(
+                $this->when($isNotList && $this->comments->isNotEmpty(), $this->comments)
+            ),
         ];
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Resources\ArticleCollection;
+use App\Models\Comment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ArticleResource;
@@ -50,6 +52,24 @@ Route::group([
             : Article::all();
 
         return new ArticleCollection($articles);
+    });
+
+    // todo - change method to post ??
+    Route::put('/comment', function (Request $request){
+
+        $valid = $request->validate([
+            'article_id' => 'required|exists:articles,id',
+            'comment' => 'nullable|string'
+        ]);
+
+        $userId = User::where('uuid', $request->route()->parameter('code'))
+            ->first()
+            ->id;
+
+        $newComment = Comment::create(array_merge($valid, ['user_id' => $userId]));
+
+        return new \App\Http\Resources\CommentResource($newComment);
+
     });
 });
 
