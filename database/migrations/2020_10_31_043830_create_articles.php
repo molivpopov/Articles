@@ -16,7 +16,7 @@ class CreateArticles extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

@@ -1,15 +1,24 @@
 $(document).ready(function () {
 
     $('#articles-list').click(function (ev) {
-        const url = baseApiLink + $('#user-place').attr('user') + '/articles';
-        console.log(url);
-        sendFields({
-            url: url,
-            data:'',
-            method:'GET',
-            afterSuccess:function (answer){
-                console.log(answer);
+        swal.fire({
+            text:'tape some tag:',
+            input: 'text',
+            showCancelButton: true,
+        }).then(function (answer){
+            let url = baseApiLink + $('#user-place').attr('user') + '/articles';
+            if (answer.value){
+                url += '?tag='+answer.value;
             }
+            console.log(url);
+            sendFields({
+                url: url,
+                data:'',
+                method:'GET',
+                afterSuccess:function (answer){
+                    console.log(answer);
+                }
+            })
         })
     });
 
@@ -17,6 +26,7 @@ $(document).ready(function () {
         swal.fire({
             text:'изберете номер на статия',
             input: 'text',
+            showCancelButton: true,
         }).then(function (answer){
             console.log(answer.value);
             if(answer.value){
@@ -40,6 +50,7 @@ $(document).ready(function () {
             title:'comment - id, text',
             html:'<input id="swal-input1" class="swal2-input"><input id="swal-input2" class="swal2-input">',
             focusConfirm: false,
+            showCancelButton: true,
             preConfirm: () => {
                 return [
                     document.getElementById('swal-input1').value,

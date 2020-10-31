@@ -25,8 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group([
     'prefix' => '{code}',
-    'middleware' => 'authorizing:admin,user'
+    'middleware' => 'authorizing:user,admin'
 ], function () {
+
     Route::get('/article', function (Request $request) {
 
         $id = $request->validate([
@@ -46,7 +47,7 @@ Route::group([
             ? Article::with('tags')
                 ->whereHas('tags', function ($q) use ($tag) {
                     // it is safe? ()
-                    $q->where('name', $tag);
+                    $q->where('name', strtolower($tag));
                 })
                 ->get()
             : Article::all();
@@ -55,7 +56,7 @@ Route::group([
     });
 
     // todo - change method to post ??
-    Route::put('/comment', function (Request $request){
+    Route::put('/comment', function (Request $request) {
 
         $valid = $request->validate([
             'article_id' => 'required|exists:articles,id',
@@ -71,5 +72,12 @@ Route::group([
         return new \App\Http\Resources\CommentResource($newComment);
 
     });
+});
+
+Route::group([
+    'prefix' => '{code}',
+    'middleware' => 'authorizing:admin'
+], function () {
+    Route::post('/article', 'SetupController@set')->name('set');
 });
 

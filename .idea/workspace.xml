@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cb2da29-d5f2-45a3-8494-db64af0a36b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/helpers/helperFunctions.js" afterDir="false" />
+    <list default="true" id="2cb2da29-d5f2-45a3-8494-db64af0a36b4" name="Default Changelist" comment="user &amp;&amp; admin can write comment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ArticleResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ArticleResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CommentResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CommentResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ImageResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ImageResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_31_043830_create_articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_31_043830_create_articles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +179,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604044611612</updated>
       <workItem from="1604044612924" duration="6553000" />
-      <workItem from="1604054531381" duration="38224000" />
+      <workItem from="1604054531381" duration="53667000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1604051252118</created>
@@ -216,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604146699032</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="user &amp;&amp; admin can write comment">
+      <created>1604159726417</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604159726417</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +229,8 @@
     <MESSAGE value="making models Article, Tag, Image, ArticleImage" />
     <MESSAGE value="making resources, middleware" />
     <MESSAGE value="adding comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding comments" />
+    <MESSAGE value="user &amp;&amp; admin can write comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="user &amp;&amp; admin can write comment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="406" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604139163733">
@@ -240,13 +241,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604143420482" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1604146696148">
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1604160671432">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1604146696148" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1604146703233">
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1604160671432" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1604159731154">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1604146703233" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1604159731154" />
   </component>
 </project>
