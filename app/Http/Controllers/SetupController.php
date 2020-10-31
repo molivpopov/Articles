@@ -58,8 +58,17 @@ class SetupController extends Controller
         return new ArticleResource($article);
     }
 
-    public function erase()
+    public function deleteImage(Request $request)
     {
+        $valid = $request->validate([
+            'image_id' => 'required|integer|exists:images,id'
+        ]);
+    }
 
+    public function deleteTag(Request $request)
+    {
+        $valid = $request->validate([
+            'tag_id' => 'required|integer|exists:tags,id'
+        ]);
     }
 }

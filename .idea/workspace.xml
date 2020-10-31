@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cb2da29-d5f2-45a3-8494-db64af0a36b4" name="Default Changelist" comment="user &amp;&amp; admin can write comment">
+    <list default="true" id="2cb2da29-d5f2-45a3-8494-db64af0a36b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_31_043830_create_articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_31_043830_create_articles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SetupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SetupController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +176,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604044611612</updated>
       <workItem from="1604044612924" duration="6553000" />
-      <workItem from="1604054531381" duration="53667000" />
+      <workItem from="1604054531381" duration="54460000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1604051252118</created>
@@ -216,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604159726417</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="admins: add &amp;&amp; edit is ready">
+      <created>1604176839039</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604176839039</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +234,8 @@
     <MESSAGE value="making resources, middleware" />
     <MESSAGE value="adding comments" />
     <MESSAGE value="user &amp;&amp; admin can write comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="user &amp;&amp; admin can write comment" />
+    <MESSAGE value="admins: add &amp;&amp; edit is ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="admins: add &amp;&amp; edit is ready" />
   </component>
   <component name="WindowStateProjectService">
     <state x="406" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604139163733">
@@ -241,13 +246,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604143420482" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1604160671432">
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1604176834807">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1604160671432" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1604159731154">
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1604176834807" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1604176844775">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1604159731154" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1604176844775" />
   </component>
 </project>

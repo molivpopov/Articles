@@ -22,7 +22,7 @@
             </div>
             @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
                 <div class="col-md-8 mt-4">
-                    <form method="post" action="{{route('set', ['code' => Auth::user()->uuid])}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('setArticle', ['code' => Auth::user()->uuid])}}" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>статия номер
                                 <input name="article_id" type="number" class="form-control @error('article_id') is-invalid @enderror">

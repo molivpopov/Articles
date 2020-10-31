@@ -78,6 +78,8 @@ Route::group([
     'prefix' => '{code}',
     'middleware' => 'authorizing:admin'
 ], function () {
-    Route::post('/article', 'SetupController@set')->name('set');
+    Route::post('/article', 'SetupController@set')->name('setArticle');
+    Route::delete('/image', 'SetupController@deleteImage')->name('deleteImage');
+    Route::delete('/tag', 'SetupController@deleteTag')->name('deleteTag');
 });
 
