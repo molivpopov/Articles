@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->rememberToken();
             $table->timestamps();
+            $table->engine = "InnoDB";
         });
 
         DB::unprepared(/** @lang text */ "

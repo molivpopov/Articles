@@ -72,7 +72,7 @@ class SetupController extends Controller
         //always have to delete
         $toDelete->delete();
 
-        //todo also delete files from storage
+        //todo also delete files from storage ???
 
         return response()->json(['data' => 'true']);
     }
