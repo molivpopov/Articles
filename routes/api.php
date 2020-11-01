@@ -30,11 +30,11 @@ Route::group([
 
     Route::get('/article', function (Request $request) {
 
-        $id = $request->validate([
-            'id' => 'required|integer|exists:articles,id'
-        ])['id'];
+        $articleId = $request->validate([
+            'article_id' => 'required|integer|exists:articles,id'
+        ])['article_id'];
 
-        return new ArticleResource(Article::find($id));
+        return new ArticleResource(Article::find($articleId));
     });
 
     Route::get('/articles', function (Request $request) {

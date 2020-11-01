@@ -11,4 +11,9 @@ class ArticleTag extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function tag()
+    {
+        return $this->hasOne(Tag::class, 'id', 'article_id');
+    }
 }

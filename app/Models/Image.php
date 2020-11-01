@@ -11,4 +11,9 @@ class Image extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function article()
+    {
+        return $this->hasOne(Article::class, 'id', 'article_id');
+    }
 }

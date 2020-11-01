@@ -19,6 +19,7 @@ class ImageResource extends JsonResource
         return [
             'name' => $this->when($haveImage, $this->name),
             'link' => $this->when($haveImage, $this->link),
+            'id' => $this->when($haveImage, $this->id),
         ];
     }
 }

@@ -47,7 +47,7 @@ class SetupController extends Controller
         }
 
         if ($request->has('image') && $valid['image']) {
-            $path = Storage::putFile('public/'.$article->id, $request->file('image'));
+            $path = Storage::putFile('public/' . $article->id, $request->file('image'));
             Image::create([
                 'article_id' => $article->id,
                 'link' => $path,
@@ -61,14 +61,40 @@ class SetupController extends Controller
     public function deleteImage(Request $request)
     {
         $valid = $request->validate([
-            'image_id' => 'required|integer|exists:images,id'
+            // todo change this validation ???
+            'image_id' => 'required|integer|exists:images,id',
+            'article_id' => 'required|exists:articles,id'
         ]);
+
+        $toDelete = Image::where('article_id', $valid['article_id'])
+            ->find($valid['image_id']);
+
+        //always have to delete
+        $toDelete->delete();
+
+        //todo also delete files from storage
+
+        return response()->json(['data' => 'true']);
     }
 
     public function deleteTag(Request $request)
     {
         $valid = $request->validate([
-            'tag_id' => 'required|integer|exists:tags,id'
+            'tag' => 'required|string',
+            'article_id' => 'required|exists:articles,id'
         ]);
+
+        $toDelete = ArticleTag::with('tag')
+            ->where('article_id', $valid['article_id'])
+            ->whereHas('tag', function ($q) use ($valid) {
+                $q->where('name', $valid['tag']);
+            });
+
+        if ($toDelete->count() > 0) {
+            $toDelete->delete();
+            return response()->json(['data' => 'true']);
+        } else {
+            return response()->json(['data' => 'false']);
+        }
     }
 }
