@@ -30,7 +30,7 @@ $(document).ready(function () {
         }).then(function (answer){
             console.log(answer.value);
             if(answer.value){
-                const url = baseApiLink + $('#user-place').attr('user') + '/article?id='+answer.value;
+                const url = baseApiLink + $('#user-place').attr('user') + '/articles/'+answer.value;
                 console.log(url);
                 sendFields({
                     url: url,

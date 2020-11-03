@@ -37,9 +37,9 @@
 <body>
 <div class="container">
     <br>
-    <h6>code – UUID - номерът на всеки потрелител или администратор,</h6>
+    <h6>code – UUID - номерът на всеки потребител или администратор,</h6>
     <h6>Тук не се разглежда случая как се регистрират в системата - </h6>
-    <h6>super Admin - а праща по майл паролите и кодовете :)</h6>
+    <h6>super Admin - праща по майл паролите и кодовете :)</h6>
     <hr>
     <br>
     <table class="table table-bordered table-striped table-sm responsive">
@@ -52,7 +52,7 @@
         </thead>
         <tbody>
         <tr>
-            <th scope="row"><a href="space">/{code}/articles<br><span class="parameter">[?tag={име на таг}]</span> </a>
+            <th scope="row"><a href="/home">/api/{code}/articles<br><span class="parameter">[?tag={име на таг}]</span> </a>
             </th>
             <td><span class="access">достъпен за всички регистрирани</span><br> method <span class="method">GET</span>
                 списък на наличните статии. Незадължителен парамитър: [tag={име на таг}]
@@ -61,7 +61,7 @@
                     class="parameter">[или списък на всички, които съдържат tag]</span></td>
         </tr>
         <tr>
-            <th scope="row"><a href="/home">/{code}/article<br><span class="parameter">?article_id={номер на сатия}</span> </a></th>
+            <th scope="row"><a href="/home">/api/{code}/article<br><span class="parameter">?article_id={номер на сатия}</span> </a></th>
             <td><span class="access">достъпен за всички регистрирани</span><br> method <span class="method">GET</span>
                 пълна информация за статия ?article_id={номер на сатия}
             </td>
@@ -69,7 +69,7 @@
         </tr>
         <tr>
             <th scope="row">
-                <a href="/home">/{code}/article<br>
+                <a href="/home">/api/{code}/article<br>
                     <span class="parameter">
                         [?article_id={номер на сатия}]<br>
                         [?title={заглавие на статия}]<br>
@@ -85,7 +85,7 @@
         <tr>
             <th scope="row">
                 <a href="/home">
-                    /{code}/comment<br>
+                    /api/{code}/comment<br>
                     ?article_id={номер на статия}<br>
                     ?comment={съдържание на коментара}
                 </a>
@@ -99,7 +99,7 @@
         </tr>
         <tr>
             <th scope="row">
-                <a href="/home">/{code}/image<br>
+                <a href="/home">/api/{code}/image<br>
                     ?article_id={номер на статия}<br>
                     ?image_id={номер на илюстрация}
                 </a>
@@ -114,7 +114,7 @@
         </tr>
         <tr>
             <th scope="row">
-                <a href="/home">/{code}/tag<br>
+                <a href="/home">/api/{code}/tag<br>
                     ?article_id={номер на статия}<br>
                     ?tag={таг}
                 </a>
