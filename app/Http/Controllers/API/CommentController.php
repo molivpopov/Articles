@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CommentResource;
-use App\Models\Article;
 use App\Models\Comment;
 use App\User;
 use Illuminate\Http\Request;
@@ -21,8 +20,6 @@ class CommentController extends Controller
      */
     public function store(Request $request, string $code, int $articleId)
     {
-        $article = Article::find($articleId);
-
         $comment = $request->validate([
             'comment' => 'required|string'
         ])['comment'];

@@ -1,12 +1,6 @@
 <?php
 
-use App\Http\Resources\ArticleCollection;
-use App\Models\Comment;
-use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Resources\ArticleResource;
-use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------

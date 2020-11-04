@@ -30,7 +30,7 @@ class TagController extends Controller
             ['name' => strtolower($valid['tag'])]
         );
 
-        $article = ArticleTag::updateOrCreate(
+        ArticleTag::updateOrCreate(
             ['tag_id' => $tag->id, 'article_id' => $articleId]
         );
 
