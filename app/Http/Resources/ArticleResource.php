@@ -14,7 +14,7 @@ class ArticleResource extends JsonResource
      */
     public function toArray($request)
     {
-        $isNotList = !$request->is('*/articles');
+        $isNotList = !$request->is('*/articles') || $request->method() != 'GET';
 
         return [
             'id' => $this->id,

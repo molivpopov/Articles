@@ -79,5 +79,9 @@ $(document).ready(function () {
 
     });
 
+    $('#articles-index').click(function (ev){
+
+    });
+
 });
 

@@ -12,7 +12,7 @@ class TestController extends Controller
 {
     public function test(Request $request)
     {
-        $c = Comment::with('user')->find(1);
-        dd($c->user->role);
+        $c = Comment::with('user')->find(null);
+        dd($c);
     }
 }

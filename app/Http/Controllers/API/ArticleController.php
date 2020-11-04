@@ -6,12 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
 use App\Models\Article;
-use App\Models\ArticleTag;
-use App\Models\Image;
-use App\Models\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -105,6 +100,7 @@ class ArticleController extends Controller
 
         $returnResource = new ArticleResource($article);
 
+        //todo delete the storage directory with image
         $article->delete();
 
         return $returnResource;

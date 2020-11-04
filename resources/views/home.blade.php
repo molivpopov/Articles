@@ -1,57 +1,92 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--    <div id="user-place" class="container" user="{{\Illuminate\Support\Facades\Auth::user()->uuid}}">--}}
     <div id="user-place" class="container" user="{{\Illuminate\Support\Facades\Auth::user()->uuid}}">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <button
-                    id="articles-list"
-                    class="btn btn-outline-success btn-sm">
-                    списък статии
-                </button>
-                <button
-                    id="article-content"
-                    class="btn btn-outline-success btn-sm">
-                    конкретна статия
-                </button>
-                <button
-                    id="article-comment"
-                    class="btn btn-outline-success btn-sm">
-                    коментар към статия
-                </button>
-            </div>
-            @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
-                <div class="col-md-8 mt-4">
-                    <form method="post" action="{{route('articles.store', ['code' => Auth::user()->uuid])}}" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>статия номер
-                                <input name="article_id" type="number" class="form-control @error('article_id') is-invalid @enderror">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>заглавие
-                                <input name="title" type="text" class="form-control @error('title') is-invalid @enderror">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>текст
-                                <input name="body" type="text" class="form-control @error('body') is-invalid @enderror">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>таг
-                                <input name="tag" type="text" class="form-control @error('tag') is-invalid @enderror">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>илюстрация
-                                <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-outline-success btn-sm">прати</button>
-                    </form>
-                </div>
-            @endif
+            @php($code = \Illuminate\Support\Facades\Auth::user()->uuid)
+            <table class="table">
+                <thead>
+                <tr>
+                    <th style="width: 10%">VERB</th>
+                    <th style="width: 20%">URI</th>
+                    <th>data</th>
+                    {{--                    <th>parameters</th>--}}
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>GET|HEAD</td>
+                    <td>api/{code}/articles</td>
+                    <td>
+                        <form method="GET" action="{{route('articles.index', ['code' => $code])}}">
+
+                            <div class="input-form">
+
+                                    <button type="submit"
+                                            id="articles-index"
+                                            class="btn btn-outline-success btn-sm">
+                                        вземи списък статии
+                                    </button>
+
+                                    <label>
+                                        <input class="form-control form-control-sm" type="text"
+                                               name="tag"
+                                               placeholder="?tag={име на таг}">
+                                    </label>
+                            </div>
+
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>api/{code}/articles</td>
+                    <td>
+                        <form method="POST" action="{{route('articles.store', ['code' => $code])}}">
+
+                            <div class="input-form">
+
+                                    <button type="submit"
+                                            id="articles-index"
+                                            class="btn btn-outline-success btn-sm">
+                                        запиши нова статия
+                                    </button>
+
+                                    <label>
+                                        <input class="form-control form-control-sm" type="text"
+                                               name="title"
+                                               placeholder="?title={име на статия}">
+                                    </label>
+                                    <label>
+                                        <input class="form-control form-control-sm" type="text"
+                                               name="body"
+                                               placeholder="?body={текст на статия}">
+                                    </label>
+                            </div>
+
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>api/{code}/articles/{article}</td>
+                    <td>
+                        <form method="GET" action="{{route('articles.show', ['code' => $code, 'article' => 25])}}">
+
+                            <div class="input-form">
+                                    <button type="submit"
+                                            id="articles-index"
+                                            class="btn btn-outline-success btn-sm">
+                                        детали по статия 25
+                                    </button>
+                            </div>
+
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
