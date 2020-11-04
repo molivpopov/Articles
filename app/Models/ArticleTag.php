@@ -12,8 +12,8 @@ class ArticleTag extends Model
 
     public $timestamps = false;
 
-    public function tag()
+    public function tags()
     {
-        return $this->hasOne(Tag::class, 'id', 'article_id');
+        return $this->hasMany(Tag::class, 'id', 'article_id');
     }
 }

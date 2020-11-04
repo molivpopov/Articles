@@ -52,80 +52,149 @@
         </thead>
         <tbody>
         <tr>
-            <th scope="row"><a href="/home">/api/{code}/articles<br><span class="parameter">[?tag={име на таг}]</span> </a>
+            <th scope="row"><a href="/home">api/{code}/articles<br><span class="parameter">[?tag={име на таг}]</span> </a>
             </th>
             <td><span class="access">достъпен за всички регистрирани</span><br> method <span class="method">GET</span>
-                списък на наличните статии. Незадължителен парамитър: [tag={име на таг}]
+                списък на наличните статии.<br>
+                [tag - незадължителен параметър] - намира всички статии с този таг
             </td>
             <td>връща списък на всички статии <br> <span
                     class="parameter">[или списък на всички, които съдържат tag]</span></td>
         </tr>
         <tr>
-            <th scope="row"><a href="/home">/api/{code}/article<br><span class="parameter">?article_id={номер на сатия}</span> </a></th>
-            <td><span class="access">достъпен за всички регистрирани</span><br> method <span class="method">GET</span>
-                пълна информация за статия ?article_id={номер на сатия}
+            <th scope="row"><a href="/home">api/{code}/articles<br><span class="parameter">?title={име на статия}<br>[?body={текст на статия}]</span> </a></th>
+            <td><span class="access">достъпен само за admin</span><br> method <span class="method">POST</span><br>създава нова статия
             </td>
-            <td>връща пълната информация за сатия номер id</td>
+            <td>връща пълната информация за новосъздадената сатия</td>
         </tr>
         <tr>
             <th scope="row">
-                <a href="/home">/api/{code}/article<br>
-                    <span class="parameter">
-                        [?article_id={номер на сатия}]<br>
-                        [?title={заглавие на статия}]<br>
-                        [?body={съдържание на статия}]<br>
-                        [?tag={таг}]<br>
-                        [?image={нова илюстрация}]<br>
-                    </span>
+                <a href="/home">api/{code}/articles/{article}<br>
                 </a>
             </th>
-            <td><span class="access">достъпен само за администратори</span><br>method <span class="method">POST</span><br>всички параметри са незадължителни: ако има номер на статия, значи редактираме съществуваща, ако няма - добавяме нова сатия. Съществуващите параметри заменят съответното съдържание в съществуващата статия. Ако има параметър image - добавя картинка към статията.</td>
-            <td>връща пълната информация за променената статия</td>
+            <td><span class="access">достъпен за всички регистрирани</span><br>method <span class="method">GET</span><br></td>
+            <td>връща пълната информация за избраната статия</td>
         </tr>
         <tr>
             <th scope="row">
                 <a href="/home">
-                    /api/{code}/comment<br>
-                    ?article_id={номер на статия}<br>
-                    ?comment={съдържание на коментара}
+                    api/{code}/articles/{article}<br>
+                    ?title={име на статия}<br>
+                    ?body={текст на статия}
+                </a>
+            </th>
+            <td>
+                <span class="access">достъпен само за admin</span><br>
+                method <span class="method">PUT</span><br>
+                поне единия от двата параметъра е задължителен<br>
+                обновява - променя статия и/или заглавие
+            </td>
+            <td> връща пълната информация за редактираната статия</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <a href="/home">
+                    api/{code}/articles/{article}
+                </a>
+            </th>
+            <td>
+                <span class="access">достъпен само за admin</span><br>
+                method <span class="method">DELETE</span><br>
+                изтрива статия с номер {article}
+            </td>
+            <td> връща пълната информация за изтритата статия</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <a href="/home">api/{code}/articles/{article}/comments <br>
+                    ?comment={тескт на коментара}<br>
                 </a>
             </th>
             <td>
                 <span class="access">достъпен за всички регистрирани</span><br>
+                method <span class="method">POST</span><br>
+                параметъра е задължителен<br>
+                създава коментар към статия
+            </td>
+            <td>връща пълната информация за коментираната статия</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <a href="/home">api/{code}/articles/{article}/image<br>
+                    ?image={илюстрация към статията}<br>
+                </a>
+            </th>
+            <td>
+                <span class="access">достъпен само за admin</span><br>
+                method <span class="method">POST</span><br>
+                параметъра е задължителен<br>
+                добавя илюстрация към статия с номер {article}
+            </td>
+            <td>връща пълната информация за променената статия</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <a href="/home">api/{code}/articles/{article}/tag<br>
+                    ?tag={таг към статията}<br>
+                </a>
+            </th>
+            <td>
+                <span class="access">достъпен само за admin</span><br>
+                method <span class="method">POST</span><br>
+                параметъра е задължителен<br>
+                добавя таг към статия с номер {article}
+            </td>
+            <td>връща пълната информация за променената статия</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <a href="/home">api/{code}/articles/{article}/tag/{tag}<br>
+                </a>
+            </th>
+            <td>
+                <span class="access">достъпен само за admin</span><br>
+                method <span class="method">DELETE</span><br>
+                откача таг от статия с номер {article}
+            </td>
+            <td>връща пълната информация за променената статия</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <a href="/home">api/{code}/comments/{comment}<br>
+                    ?comment={тескт на коментара}<br>
+                </a>
+            </th>
+            <td>
+                <span class="access">достъпен за admin и за потребителя създал коментара</span><br>
                 method <span class="method">PUT</span><br>
-                параметрите са задължителни
+                параметъра е задължителен<br>
+                променя коментар
             </td>
-            <td> връща пълното описание на коментара</td>
+            <td>връща пълната информация за променения коментар</td>
         </tr>
         <tr>
             <th scope="row">
-                <a href="/home">/api/{code}/image<br>
-                    ?article_id={номер на статия}<br>
-                    ?image_id={номер на илюстрация}
+                <a href="/home">api/{code}/comments/{comment}<br>
                 </a>
             </th>
             <td>
-                <span class="access">достъпен само за администратори</span><br>
+                <span class="access">достъпен за admin и за потребителя създал коментара</span><br>
                 method <span class="method">DELETE</span><br>
-                параметрите са задължителни<br>
-                премахва илюстрация от статия
+                заличава коментар
             </td>
-            <td>връща "true" ако успешно е премахната илюстрация (ако има такакава в тази статия), или "false" ако не е премахната</td>
+            <td>връща пълната информация за променената статия</td>
         </tr>
         <tr>
             <th scope="row">
-                <a href="/home">/api/{code}/tag<br>
-                    ?article_id={номер на статия}<br>
-                    ?tag={таг}
+                <a href="/home">api/{code}/image/{image}<br>
                 </a>
             </th>
             <td>
-                <span class="access">достъпен само за администратори</span><br>
+                <span class="access">достъпен само за admin</span><br>
                 method <span class="method">DELETE</span><br>
-                параметрите са задължителни<br>
-                премахва таг от статия
+                заличава илюстрация към стътия
             </td>
-            <td>връща "true" ако успешно е премахнат таг (ако има такъв в тази статия), или "false" ако не е премахнат</td>
+            <td>връща пълната информация за променената статия</td>
         </tr>
         </tbody>
     </table>

@@ -13,9 +13,13 @@ class Comment extends Model
 
     public $timestamps = false;
 
-    public function user()
+    public function user($code = null)
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        $relation = $this->hasOne(User::class, 'id', 'user_id');
+
+        return $code
+            ? $relation->where('uuid', $code)
+            : $relation;
     }
 
     public function article()

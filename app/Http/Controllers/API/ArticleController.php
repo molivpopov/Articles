@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
 use App\Models\Article;
@@ -9,7 +10,6 @@ use App\Models\ArticleTag;
 use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,13 +23,14 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $tag = $request->input('tag', false);
+        $valid = $request->validate([
+            'tag' => 'string'
+        ]);
 
-        $articles = $tag
+        $articles = !empty($valid)
             ? Article::with('tags')
-                ->whereHas('tags', function ($q) use ($tag) {
-                    // it is safe? ()
-                    $q->where('name', strtolower($tag));
+                ->whereHas('tags', function ($query) use ($valid) {
+                    $query->where('name', strtolower($valid['tag']));
                 })
                 ->get()
             : Article::all();
@@ -45,25 +46,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $newTitle = $request->validate([
+        $valid = $request->validate([
             'title' => 'required|string',
-            'image' => 'image|max:2000'
-        ])['title'];
+            'body' => 'string'
+        ]);
 
-        $articleId = Article::create([
-            'title' => $newTitle
-        ])->id;
+        $article = Article::create($valid);
 
-        $responseRequest = Request::create(
-            $request->getUri() . '/' . $articleId,
-            'PUT',
-            $request->post(),
-            $request->cookie(),
-            $request->file()
-        );
-
-        //redirect to update method with PUT verb
-        return Route::dispatch($responseRequest)->getContent();
+        return new ArticleResource($article);
     }
 
     /**
@@ -76,8 +66,6 @@ class ArticleController extends Controller
     public function show($code, $articleId)
     {
         $article = Article::find($articleId);
-
-        if (!$article) abort(404);
 
         return new ArticleResource($article);
     }
@@ -94,44 +82,10 @@ class ArticleController extends Controller
     {
         $article = Article::find($articleId);
 
-        if (!$article) abort(404);
-
         $valid = $request->validate([
-            'title' => 'nullable|string',
-            'body' => 'nullable|string',
-            'tag' => 'nullable|string',
-            'image' => 'image|max:2000'
+            'title' => 'required_without:body|string|max:255',
+            'body' => 'required_without:title|string',
         ]);
-
-        $valid = array_filter($valid, function ($item) {
-            return $item;
-        });
-
-        if ($valid['image']) {
-
-            $path = Storage::putFile('public/' . $article->id, $valid['image']);
-
-            Image::create([
-                'article_id' => $article->id,
-                'link' => $path,
-                'name' => $valid['image']->getClientOriginalName()
-            ]);
-
-            unset($valid['image']);
-        }
-
-        if ($valid['tag']) {
-
-            $tag = Tag::updateOrCreate(
-                ['name' => strtolower($valid['tag'])]
-            );
-
-            ArticleTag::updateOrCreate(
-                ['tag_id' => $tag->id, 'article_id' => $article->id]
-            );
-
-            unset($valid['tag']);
-        }
 
         $article->update($valid);
 
@@ -148,8 +102,6 @@ class ArticleController extends Controller
     public function destroy($code, $articleId)
     {
         $article = Article::find($articleId);
-
-        if (!$article) abort(404);
 
         $returnResource = new ArticleResource($article);
 

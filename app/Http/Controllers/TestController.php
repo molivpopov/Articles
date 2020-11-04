@@ -10,14 +10,9 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function test()
+    public function test(Request $request)
     {
-//        $comm = Comment::with('article')->find(2);
-//        $img= Image::with('article')->find(1);
-        $vv = array('hello');
-        unset($vv[0]);
-        dd($vv);
-        Image::find(2)->update($vv);
-        dd('hello');
+        $c = Comment::with('user')->find(1);
+        dd($c->user->role);
     }
 }
