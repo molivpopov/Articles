@@ -76,9 +76,9 @@
 
                             <div class="input-form">
                                     <button type="submit"
-                                            id="articles-index"
+                                            id="articles-show"
                                             class="btn btn-outline-success btn-sm">
-                                        детали по статия 25
+                                        детайли по статия 25
                                     </button>
                             </div>
 

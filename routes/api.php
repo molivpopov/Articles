@@ -21,11 +21,11 @@ Route::group([
 
     Route::apiResource('articles', 'ArticleController')
         ->only(['index', 'show'])
-        ->middleware(['authorizing:user,admin']);
+        ->middleware(['authorizing:user,admin', 'drop.null']);
 
     Route::apiResource('articles', 'ArticleController')
         ->only(['store', 'update', 'destroy'])
-        ->middleware(['authorizing:admin']);
+        ->middleware(['authorizing:admin', 'drop.null']);
 
     Route::apiResource('articles.comments', 'CommentController')
         ->shallow()

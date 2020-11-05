@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\Authorizing;
 use App\Http\Middleware\CheckArticle;
+use App\Http\Middleware\DropNull;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'authorizing' => Authorizing::class,
         'check.article' => CheckArticle::class,
+        'drop.null' => DropNull::class,
     ];
 }
